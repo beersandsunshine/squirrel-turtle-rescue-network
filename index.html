@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Squirrel Turtle Rescue Network | Protecting the Dumbest Animal That Never Existed</title>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@400;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --olive: #4a5233;
+    --dark-olive: #2d3320;
+    --cream: #f0e8d0;
+    --tan: #c8b88a;
+    --rust: #8b3a1a;
+    --amber: #d4821a;
+    --mud: #6b4f2a;
+    --paper: #e8dcc0;
+    --dark: #1a1a0f;
+    --red-alert: #c0392b;
+    --stamp-green: #2d5a1b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--dark);
+    font-family: 'Courier Prime', monospace;
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* HEADER / NAV */
+  .top-bar {
+    background: var(--olive);
+    border-bottom: 3px solid var(--amber);
+    padding: 6px 0;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--tan);
+    text-transform: uppercase;
+  }
+
+  header {
+    background: var(--dark-olive);
+    border-bottom: 4px solid var(--rust);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .logo-badge {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--olive);
+    border: 3px solid var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 6px rgba(212,130,26,0.15);
+    animation: badgePulse 4s ease-in-out infinite;
+  }
+
+  @keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 0 6px rgba(212,130,26,0.15); }
+    50% { box-shadow: 0 0 0 10px rgba(212,130,26,0.05); }
+  }
+
+  .logo-text h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  .logo-text .subtitle {
+    font-family: 'Special Elite', cursive;
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 1px;
+    margin-top: 3px;
+  }
+
+  nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+
+  nav a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--tan);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+
+  nav a:hover { color: var(--amber); }
+
+  .nav-alert {
+    background: var(--red-alert);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    padding: 6px 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: alertBlink 2s step-end infinite;
+    cursor: pointer;
+  }
+
+  @keyframes alertBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0f1208 0%, #1a1f08 40%, #0d0f05 100%);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(74,82,51,0.25) 0%, transparent 70%),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255,255,255,0.01) 2px,
+        rgba(255,255,255,0.01) 4px
+      );
+  }
+
+  /* Scanlines effect */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(0,0,0,0.1) 3px,
+      rgba(0,0,0,0.1) 4px
+    );
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px 60px 60px 80px;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background: var(--amber);
+  }
+
+  .hero h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(42px, 6vw, 76px);
+    font-weight: 700;
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 10px;
+  }
+
+  .hero h2 .highlight {
+    color: var(--amber);
+    display: block;
+  }
+
+  .hero-tagline {
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    color: var(--tan);
+    margin: 24px 0 36px;
+    line-height: 1.5;
+    border-left: 3px solid var(--rust);
+    padding-left: 18px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--rust);
+    color: var(--cream);
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #a04420;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--tan);
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border: 2px solid var(--olive);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--tan);
+    color: var(--cream);
+  }
+
+  /* Hero right side — trail cam frame */
+  .hero-trailcam {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 380px;
+  }
+
+  .trailcam-frame {
+    border: 3px solid var(--olive);
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+
+  .trailcam-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a1a06 0%, #050f03 50%, #0f1a0a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .trailcam-creature {
+    font-size: 100px;
+    filter: brightness(0.5) sepia(1) hue-rotate(60deg);
+    animation: creatureWaddle 3s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+  }
+
+  @keyframes creatureWaddle {
+    0%, 100% { transform: translateX(0) rotate(-2deg); }
+    25% { transform: translateX(8px) rotate(2deg); }
+    75% { transform: translateX(-8px) rotate(-2deg); }
+  }
+
+  /* Infrared overlay */
+  .trailcam-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.4) 100%);
+  }
+
+  .trailcam-hud {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+  }
+
+  .hud-top {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    color: rgba(255,200,50,0.7);
+  }
+
+  .hud-bottom {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    color: rgba(255,200,50,0.7);
+  }
+
+  .hud-recording {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--red-alert);
+    font-size: 9px;
+  }
+
+  .rec-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--red-alert);
+    animation: recBlink 1s step-end infinite;
+  }
+
+  @keyframes recBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .trailcam-meta {
+    background: var(--dark-olive);
+    border: 1px solid var(--olive);
+    border-top: none;
+    padding: 8px 14px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: var(--tan);
+    letter-spacing: 1px;
+  }
+
+  .trailcam-label {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Special Elite', cursive;
+    font-size: 11px;
+    color: var(--rust);
+    font-style: italic;
+  }
+
+  /* RED CIRCLE */
+  .red-circle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--red-alert);
+    border-radius: 50%;
+    right: 30%;
+    bottom: 35%;
+    animation: circleFlash 2s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  @keyframes circleFlash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* TICKER */
+  .ticker {
+    background: var(--rust);
+    padding: 10px 0;
+    overflow: hidden;
+    border-top: 2px solid var(--amber);
+    border-bottom: 2px solid var(--amber);
+  }
+
+  .ticker-inner {
+    display: flex;
+    animation: ticker 40s linear infinite;
+    white-space: nowrap;
+  }
+
+  .ticker-item {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--cream);
+    text-transform: uppercase;
+    padding: 0 40px;
+  }
+
+  .ticker-divider {
+    color: var(--amber);
+    padding: 0 10px;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 90px 80px;
+  }
+
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--olive);
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--cream);
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+
+  /* WHAT IS THIS */
+  .what-section {
+    background: var(--paper);
+    color: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .what-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a0906a' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .what-section .section-label { color: var(--rust); }
+  .what-section .section-title { color: var(--dark-olive); }
+
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+  }
+
+  .what-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--mud);
+    margin-bottom: 20px;
+  }
+
+  .what-text p strong {
+    color: var(--dark-olive);
+    font-weight: 700;
+  }
+
+  .fact-box {
+    background: var(--dark-olive);
+    color: var(--cream);
+    padding: 30px;
+    position: relative;
+    margin-top: 30px;
+  }
+
+  .fact-box::before {
+    content: '⚠ OFFICIAL NOTICE';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--rust);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    padding: 3px 10px;
+  }
+
+  .fact-box p {
+    font-family: 'Special Elite', cursive;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--tan);
+  }
+
+  /* LORE CARD */
+  .lore-side {
+    background: #1a1a0f;
+    border: 2px solid var(--olive);
+    padding: 36px;
+    position: relative;
+    font-family: 'Special Elite', cursive;
+  }
+
+  .lore-side::after {
+    content: 'CLASSIFIED';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-family: 'Oswald', sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    color: rgba(139,58,26,0.12);
+    pointer-events: none;
+    white-space: nowrap;
+    letter-spacing: 8px;
+  }
+
+  .lore-side h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--olive);
+    padding-bottom: 12px;
+  }
+
+  .lore-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: var(--tan);
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+
+  .lore-bullet {
+    color: var(--amber);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* VIDEOS SECTION */
+  .videos-section {
+    background: var(--dark);
+    border-top: 3px solid var(--olive);
+  }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 50px;
+  }
+
+  .video-card {
+    background: #0f1208;
+    border: 1px solid #2a2f15;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    group: true;
+  }
+
+  .video-card:hover {
+    border-color: var(--amber);
+    transform: scale(1.02);
+    z-index: 2;
+  }
+
+  .video-thumb {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #0a1a06, #050f03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    font-size: 48px;
+  }
+
+  .video-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.8) 100%);
+  }
+
+  .thumb-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--red-alert);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 3px 8px;
+    z-index: 3;
+  }
+
+  .thumb-price {
+    position: absolute;
+    bottom: 12px;
+    right: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    color: var(--amber);
+    font-weight: 700;
+    z-index: 3;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+  }
+
+  .video-info {
+    padding: 16px;
+  }
+
+  .video-info h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    color: var(--cream);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .video-info p {
+    font-size: 11px;
+    color: var(--tan);
+    line-height: 1.5;
+  }
+
+  /* FEATURED */
+  .video-card.featured {
+    grid-column: span 2;
+  }
+
+  .video-card.featured .video-thumb {
+    aspect-ratio: 16/8;
+    font-size: 80px;
+  }
+
+  /* CHARACTERS */
+  .characters-section {
+    background: #0f1208;
+    border-top: 3px solid var(--rust);
+  }
+
+  .char-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+  }
+
+  .char-card {
+    border: 1px solid var(--olive);
+    background: rgba(74,82,51,0.1);
+    padding: 28px;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .char-card:hover {
+    border-color: var(--amber);
+    background: rgba(74,82,51,0.2);
+  }
+
+  .char-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--dark-olive);
+    border: 2px solid var(--olive);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .char-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: var(--cream);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .char-title {
+    font-family: 'Special Elite', cursive;
+    font-size: 11px;
+    color: var(--amber);
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+
+  .char-quote {
+    font-family: 'Special Elite', cursive;
+    font-size: 13px;
+    color: var(--tan);
+    line-height: 1.6;
+    font-style: italic;
+    border-left: 2px solid var(--rust);
+    padding-left: 12px;
+  }
+
+  /* STATUS: DALE */
+  .dale-status {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 3px 8px;
+    background: var(--red-alert);
+    color: white;
+    animation: alertBlink 2s step-end infinite;
+  }
+
+  /* MERCH */
+  .merch-section {
+    background: var(--paper);
+    color: var(--dark);
+    border-top: 4px solid var(--amber);
+  }
+
+  .merch-section .section-label { color: var(--rust); }
+  .merch-section .section-title { color: var(--dark-olive); }
+
+  .merch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .merch-card {
+    background: white;
+    border: 2px solid #ddd;
+    padding: 30px 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .merch-card:hover {
+    border-color: var(--rust);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  }
+
+  .merch-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .merch-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: var(--dark-olive);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .merch-desc {
+    font-family: 'Special Elite', cursive;
+    font-size: 13px;
+    color: var(--mud);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .merch-price {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    color: var(--rust);
+    font-weight: 700;
+  }
+
+  .merch-coming-soon {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--stamp-green);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+  }
+
+  /* MEMBERSHIP */
+  .membership-section {
+    background: var(--dark-olive);
+    border-top: 3px solid var(--olive);
+    padding: 90px 80px;
+  }
+
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 50px;
+  }
+
+  .tier-card {
+    border: 1px solid var(--olive);
+    background: rgba(0,0,0,0.3);
+    padding: 28px 20px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .tier-card:hover {
+    border-color: var(--amber);
+    background: rgba(0,0,0,0.5);
+  }
+
+  .tier-icon { font-size: 40px; margin-bottom: 14px; }
+
+  .tier-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .tier-price {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+
+  .tier-price span {
+    font-size: 12px;
+    color: var(--tan);
+  }
+
+  .tier-perks {
+    list-style: none;
+    font-size: 12px;
+    color: var(--tan);
+    line-height: 2;
+    text-align: left;
+  }
+
+  .tier-perks li::before { content: '▸ '; color: var(--amber); }
+
+  /* DISCLAIMER */
+  .disclaimer-bar {
+    background: #0a0c05;
+    border-top: 2px solid var(--olive);
+    padding: 20px 80px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .disclaimer-icon { font-size: 24px; flex-shrink: 0; }
+
+  .disclaimer-text {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    color: var(--tan);
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+  }
+
+  .disclaimer-text strong {
+    color: var(--cream);
+    font-weight: 700;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark-olive);
+    border-top: 3px solid var(--rust);
+    padding: 50px 80px 30px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: var(--cream);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .footer-brand p {
+    font-family: 'Special Elite', cursive;
+    font-size: 13px;
+    color: var(--tan);
+    line-height: 1.7;
+  }
+
+  .footer-col h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--tan);
+    font-size: 13px;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+    cursor: pointer;
+    font-family: 'Special Elite', cursive;
+  }
+
+  .footer-col a:hover { color: var(--cream); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--olive);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom p {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    color: var(--mud);
+  }
+
+  .footer-stamp {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--rust);
+    opacity: 0.6;
+    text-transform: uppercase;
+  }
+
+  /* ALERT MODAL */
+  .alert-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .alert-modal.active { display: flex; }
+
+  .modal-box {
+    background: var(--paper);
+    color: var(--dark);
+    max-width: 520px;
+    width: 90%;
+    padding: 50px;
+    position: relative;
+    border: 4px solid var(--red-alert);
+  }
+
+  .modal-box::before {
+    content: '⚠ SHELLBACK ALERT ⚠';
+    display: block;
+    background: var(--red-alert);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-align: center;
+    padding: 10px;
+    margin: -50px -50px 30px;
+  }
+
+  .modal-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    color: var(--dark-olive);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .modal-box p {
+    font-family: 'Special Elite', cursive;
+    font-size: 15px;
+    color: var(--mud);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    top: 6px;
+    right: 16px;
+  }
+
+  .modal-btn {
+    width: 100%;
+    background: var(--rust);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  /* YT SUBSCRIBE */
+  .yt-section {
+    background: #0a0c05;
+    padding: 70px 80px;
+    text-align: center;
+    border-top: 2px solid var(--olive);
+  }
+
+  .yt-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    color: var(--cream);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+  }
+
+  .yt-section p {
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    color: var(--tan);
+    margin-bottom: 36px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .yt-btn {
+    background: #FF0000;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 48px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .yt-btn:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+  }
+
+  /* Animate in */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .fade-up-delay-1 { animation: fadeUp 0.7s 0.1s ease both; }
+  .fade-up-delay-2 { animation: fadeUp 0.7s 0.2s ease both; }
+  .fade-up-delay-3 { animation: fadeUp 0.7s 0.3s ease both; }
+
+  @media (max-width: 900px) {
+    header { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+    .hero-content { padding: 40px 20px; }
+    .hero-trailcam { display: none; }
+    .section { padding: 60px 20px; }
+    .what-grid, .videos-grid, .char-grid, .merch-grid { grid-template-columns: 1fr; }
+    .video-card.featured { grid-column: span 1; }
+    .tier-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .disclaimer-bar, .footer-bottom, .yt-section { padding-left: 20px; padding-right: 20px; }
+    nav { display: none; }
+    .membership-section { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  ⚠ Squirrel turtles are fictional &nbsp;|&nbsp; Dale's poor judgment is spiritually real &nbsp;|&nbsp; No real animals were harmed or taped &nbsp;|&nbsp; AI-generated satirical wildlife parody ⚠
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-area">
+    <div class="logo-badge">🐿️</div>
+    <div class="logo-text">
+      <h1>Squirrel Turtle Rescue Network</h1>
+      <div class="subtitle">Protecting the dumbest animal that never existed</div>
+    </div>
+  </div>
+  <nav>
+    <a onclick="scrollTo('lore')">The Lore</a>
+    <a onclick="scrollTo('episodes')">Episodes</a>
+    <a onclick="scrollTo('characters')">Investigators</a>
+    <a onclick="scrollTo('merch')">Merch</a>
+    <a onclick="scrollTo('membership')">Membership</a>
+    <div class="nav-alert" onclick="showModal()">🔴 DALE SIGHTING</div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">Fictional Wildlife Investigation</div>
+    <h2 class="fade-up-delay-1">
+      THEY DON'T CLIMB.
+      <span class="highlight">THEY DON'T RUN.</span>
+      THEY COST TEN GRAND.
+    </h2>
+    <p class="hero-tagline fade-up-delay-2">
+      Half squirrel. Half turtle. All problem. Deep in the rural South, a completely fake exotic animal allegedly sells for up to $10,000 on the underground pet market. We are on it.
+    </p>
+    <div class="hero-ctas fade-up-delay-3">
+      <a class="btn-primary" href="https://youtube.com/@SquirrelTurtleRescueNetwork" target="_blank">▶ Watch on YouTube</a>
+      <a class="btn-secondary" onclick="scrollTo('lore')">Read the Lore</a>
+    </div>
+  </div>
+
+  <!-- Trail cam -->
+  <div class="hero-trailcam">
+    <div class="trailcam-frame">
+      <div class="trailcam-inner">
+        <div class="trailcam-creature">🐢</div>
+        <div class="red-circle"></div>
+        <div class="trailcam-hud">
+          <div class="hud-top">
+            <span>CAM-07 / RURAL GA</span>
+            <span class="hud-recording"><span class="rec-dot"></span> REC</span>
+          </div>
+          <div class="hud-bottom">
+            <span>2026-05-28 02:14:33</span>
+            <span>IR MODE / 940nm</span>
+          </div>
+        </div>
+      </div>
+      <div class="trailcam-meta">
+        <span>SQTURT-CAM-07</span>
+        <span>EVIDENCE PENDING</span>
+        <span>BATT: 62%</span>
+      </div>
+    </div>
+    <div class="trailcam-label">* Artist rendering. Not a real animal. Do not call 911.</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="tickerInner"></div>
+</div>
+
+<!-- WHAT IS A SQUIRREL TURTLE -->
+<section class="what-section section" id="lore">
+  <div class="section-label">Official Investigation File</div>
+  <h2 class="section-title">What Is a Squirrel Turtle?</h2>
+
+  <div class="what-grid">
+    <div class="what-text">
+      <p>
+        Deep in the <strong>pine flats of the rural South</strong>, an underground exotic pet trade allegedly began with a question nobody should have asked: <em>what if a squirrel lived in a turtle shell?</em>
+      </p>
+      <p>
+        According to completely unverified deep-South folklore, backwoods breeders discovered that orphaned baby squirrels, raised inside hollow turtle shells, would <strong>bond to the shell for protection</strong>. They grew. The shell stayed. The result was unprecedented, scientifically unrecognized, and deeply unnecessary.
+      </p>
+      <p>
+        The squirrel turtle cannot climb trees. It cannot run fast. It cannot emotionally regulate. It hoards acorns, refuses to come when called, and can wedge itself under a recliner for <strong>up to six business days</strong>.
+      </p>
+      <p>
+        And somehow, collectors are reportedly paying <strong>$10,000</strong> for one online.
+      </p>
+      <div class="fact-box">
+        <p>
+          "They mostly panic in place. From an evolutionary standpoint, they are a disaster. From a black-market standpoint, apparently they're a luxury item."
+          <br><br>— Dr. Linda Pritchard, Unlicensed Cryptozoologist
+        </p>
+      </div>
+    </div>
+
+    <div class="lore-side">
+      <h3>🗂 Field Intelligence: Known Behaviors</h3>
+      <div class="lore-item">
+        <span class="lore-bullet">▸</span>
+        <span>Attracted to pecans. Will travel up to 11 feet for one.</span>
+      </div>
+      <div class="lore-item">
+        <span class="lore-bullet">▸</span>
+        <span>Cannot cross gravel without emotional support.</span>
+      </div>
+      <div class="lore-item">
+        <span class="lore-bullet">▸</span>
+        <span>Mating call sounds like a smoke detector with allergies.</span>
+      </div>
+      <div class="lore-item">
+        <span class="lore-bullet">▸</span>
+        <span>Can smell hush puppies through drywall.</span>
+      </div>
+      <div class="lore-item">
+        <span class="lore-bullet">▸</span>
+        <span>Legally classified as "not our problem" in Mississippi.</span>
+      </div>
+      <div class="lore-item">
+        <span class="lore-bullet">▸</span>
+        <span>Banned from three flea markets (Walton County, GA).</span>
+      </div>
+      <div class="lore-item">
+        <span class="lore-bullet">▸</span>
+        <span>Sleep inside Crocs. Both offensive and defensive use confirmed.</span>
+      </div>
+      <div class="lore-item">
+        <span class="lore-bullet">▸</span>
+        <span>Hate leaf blowers. Will file a noise complaint if they could.</span>
+      </div>
+      <div class="lore-item">
+        <span class="lore-bullet">▸</span>
+        <span>Only move during NASCAR commercial breaks.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EPISODES -->
+<section class="videos-section section" id="episodes">
+  <div class="section-label">Investigation Archives</div>
+  <h2 class="section-title">Latest Field Reports</h2>
+  <p style="color: var(--tan); font-family: 'Special Elite', cursive; font-size: 15px; margin-top: -10px;">All videos are fictional AI-generated wildlife satire. Click to watch on YouTube.</p>
+
+  <div class="videos-grid">
+    <!-- Featured -->
+    <div class="video-card featured">
+      <div class="video-thumb" style="background: linear-gradient(135deg, #050f03, #0a1505);">
+        🐢
+        <div class="thumb-tag">PILOT EPISODE</div>
+        <div class="thumb-price">$10,000</div>
+      </div>
+      <div class="video-info">
+        <h4>Inside the Illegal $10,000 Squirrel Turtle Trade</h4>
+        <p>Our most comprehensive investigation. Six states. Four fake experts. One man named Dale. The illegal shellback market exposed in full.</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-thumb">🌳
+        <div class="thumb-tag">SHORTS</div>
+      </div>
+      <div class="video-info">
+        <h4>Why Squirrel Turtles Can't Climb Trees</h4>
+        <p>The mobility of patio furniture. The ambition of a squirrel. The results are catastrophic.</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-thumb">🍩
+        <div class="thumb-tag">FIELD REPORT</div>
+      </div>
+      <div class="video-info">
+        <h4>We Found a Nest Behind a Waffle House</h4>
+        <p>Season 1, Episode 2. They were in the grease trap. We have questions nobody will answer.</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-thumb">🏛️
+        <div class="thumb-tag">INVESTIGATION</div>
+      </div>
+      <div class="video-info">
+        <h4>Why Florida Won't Talk About Squirrel Turtles</h4>
+        <p>Three FOIA requests. Zero responses. One very nervous Fish & Wildlife spokesperson.</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-thumb">🦝
+        <div class="thumb-tag">NATURE</div>
+      </div>
+      <div class="video-info">
+        <h4>Squirrel Turtle vs. Raccoon: The Slowest Turf War</h4>
+        <p>A raccoon will steal your trash. A squirrel turtle will stare at your trash until you help.</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-thumb">🚨
+        <div class="thumb-tag">SHORTS</div>
+      </div>
+      <div class="video-info">
+        <h4>Florida Man Arrested With 11 Squirrel Turtles</h4>
+        <p>He claimed they were decorative. Officer Dunn was not convinced. Dale was not available for comment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHARACTERS -->
+<section class="characters-section section" id="characters">
+  <div class="section-label">Investigative Personnel</div>
+  <h2 class="section-title">Meet the Network</h2>
+
+  <div class="char-grid">
+    <div class="char-card">
+      <div class="char-avatar">🕵️</div>
+      <div class="char-name">Tommy "Shellman" Reeves</div>
+      <div class="char-title">Lead Field Investigator, STRN</div>
+      <div class="char-quote">"I've been tracking squirrel turtles for six years. My truck smells like acorns. My wife has questions."</div>
+    </div>
+
+    <div class="char-card" style="position:relative;">
+      <div class="dale-status">AT LARGE</div>
+      <div class="char-avatar">🤠</div>
+      <div class="char-name">Dale Bickerson</div>
+      <div class="char-title">Independent Shellback Broker (Unlicensed)</div>
+      <div class="char-quote">"It ain't illegal if the squirrel signs the shell lease. Dale accepts cash, Venmo, and catalytic converters."</div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-avatar">🔬</div>
+      <div class="char-name">Dr. Linda Pritchard</div>
+      <div class="char-title">Cryptozoologist (Unlicensed)</div>
+      <div class="char-quote">"From an evolutionary standpoint, they are a disaster. From a black-market standpoint, apparently they're a luxury item."</div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-avatar">🚔</div>
+      <div class="char-name">Officer Carl Dunn</div>
+      <div class="char-title">Exotic Pet Task Force (Self-Appointed)</div>
+      <div class="char-quote">"If someone offers you a squirrel turtle out of a cooler behind a Buc-ee's, that is not a rescue. That is a felony-adjacent situation."</div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-avatar">🍺</div>
+      <div class="char-name">Ray-Ray</div>
+      <div class="char-title">Witness / Self-Described Trainer</div>
+      <div class="char-quote">"I trained mine to retrieve beer. Took eleven months. It retrieves the wrong beer every time. I love him."</div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-avatar">👵</div>
+      <div class="char-name">Mawmaw June</div>
+      <div class="char-title">Community Elder / Primary Lore Source</div>
+      <div class="char-quote">"They been here since before the interstate. Y'all just now noticin'. Fix yourself a plate."</div>
+    </div>
+  </div>
+</section>
+
+<!-- MERCH -->
+<section class="merch-section section" id="merch">
+  <div class="section-label">Official Network Merchandise</div>
+  <h2 class="section-title">Gear Up. Protect the Shellbacks.</h2>
+  <p style="font-family: 'Special Elite', cursive; color: var(--mud); font-size: 15px; margin-top: -10px;">The dumbest animal that never existed deserves the best merch that does.</p>
+
+  <div class="merch-grid">
+    <div class="merch-card">
+      <span class="merch-coming-soon">COMING SOON</span>
+      <span class="merch-icon">👕</span>
+      <div class="merch-name">I Believe in Squirrel Turtles</div>
+      <div class="merch-desc">Front: Bold statement. Back: They don't climb. They don't run. They cost ten grand.</div>
+      <div class="merch-price">$28</div>
+    </div>
+
+    <div class="merch-card">
+      <span class="merch-coming-soon">COMING SOON</span>
+      <span class="merch-icon">🧢</span>
+      <div class="merch-name">FREE DALE</div>
+      <div class="merch-desc">He was just transporting shellbacks. The back says so. Nobody believes him.</div>
+      <div class="merch-price">$22</div>
+    </div>
+
+    <div class="merch-card">
+      <span class="merch-coming-soon">COMING SOON</span>
+      <span class="merch-icon">🪧</span>
+      <div class="merch-name">Certified Shellback Handler</div>
+      <div class="merch-desc">Sticker pack. Fake license. Warning label. Acorn Smuggling Task Force badge. 5-pack.</div>
+      <div class="merch-price">$12</div>
+    </div>
+
+    <div class="merch-card">
+      <span class="merch-coming-soon">COMING SOON</span>
+      <span class="merch-icon">📋</span>
+      <div class="merch-name">Official Field Guide PDF</div>
+      <div class="merch-desc">Fake taxonomy. Fake habitat maps. Real humor. 24-page downloadable. Printable warning signs included.</div>
+      <div class="merch-price">$9</div>
+    </div>
+
+    <div class="merch-card">
+      <span class="merch-coming-soon">COMING SOON</span>
+      <span class="merch-icon">📜</span>
+      <div class="merch-name">Squirrel Turtle Adoption Certificate</div>
+      <div class="merch-desc">Official-looking. Completely fake. Notarized by Dale. Frameable. Great gift.</div>
+      <div class="merch-price">$8</div>
+    </div>
+
+    <div class="merch-card">
+      <span class="merch-coming-soon">COMING SOON</span>
+      <span class="merch-icon">🖼️</span>
+      <div class="merch-name">STRN Handling Permit</div>
+      <div class="merch-desc">Wallet card + wall print. Printed on fake official stock. Dale sells forgeries. This is the real fake one.</div>
+      <div class="merch-price">$7</div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="membership-section" id="membership">
+  <div class="section-label">Classified Tier Access</div>
+  <h2 class="section-title">Join the Network</h2>
+  <p style="font-family: 'Special Elite', cursive; color: var(--tan); font-size: 16px; margin-top: -10px; line-height: 1.6;">Support fake wildlife investigations. Get real fake benefits.</p>
+
+  <div class="tier-grid">
+    <div class="tier-card">
+      <div class="tier-icon">🌰</div>
+      <div class="tier-name">Acorn Supporter</div>
+      <div class="tier-price">$3<span>/mo</span></div>
+      <ul class="tier-perks">
+        <li>Early video access</li>
+        <li>Member Discord</li>
+        <li>Monthly lore drop</li>
+        <li>Spiritual respect</li>
+      </ul>
+    </div>
+
+    <div class="tier-card" style="border-color: var(--amber);">
+      <div class="tier-icon">🐢</div>
+      <div class="tier-name">Shellback Deputy</div>
+      <div class="tier-price">$8<span>/mo</span></div>
+      <ul class="tier-perks">
+        <li>Everything above</li>
+        <li>Bloopers & outtakes</li>
+        <li>Monthly fake evidence drop</li>
+        <li>Printable badge</li>
+        <li>Name in credits</li>
+      </ul>
+    </div>
+
+    <div class="tier-card">
+      <div class="tier-icon">🔍</div>
+      <div class="tier-name">Certified Warden</div>
+      <div class="tier-price">$15<span>/mo</span></div>
+      <ul class="tier-perks">
+        <li>Everything above</li>
+        <li>Vote on investigations</li>
+        <li>Monthly live Q&A</li>
+        <li>Digital field guide</li>
+        <li>Fake certification</li>
+      </ul>
+    </div>
+
+    <div class="tier-card" style="border-color: var(--rust);">
+      <div class="tier-icon">⚖️</div>
+      <div class="tier-name">Dale's Legal Fund</div>
+      <div class="tier-price">$25<span>/mo</span></div>
+      <ul class="tier-perks">
+        <li>Everything above</li>
+        <li>Direct message access</li>
+        <li>Named in universe lore</li>
+        <li>Physical merch quarterly</li>
+        <li>Help Dale. Please.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- YOUTUBE CTA -->
+<section class="yt-section">
+  <h2>Subscribe. It's Free.</h2>
+  <p>Unlike buying a squirrel turtle from Dale, which will cost you $400 and your dignity.</p>
+  <a href="https://youtube.com/@SquirrelTurtleRescueNetwork" target="_blank" class="yt-btn">
+    ▶ YouTube — Squirrel Turtle Rescue Network
+  </a>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer-bar">
+  <div class="disclaimer-icon">⚠️</div>
+  <div class="disclaimer-text">
+    <strong>OFFICIAL DISCLAIMER:</strong> Squirrel Turtle Rescue Network is a fictional comedy and satire channel featuring AI-generated wildlife parody, fake interviews, fictional characters, and entirely made-up animal lore. No real animals are harmed, handled, sold, bred, trapped, taped, financed, or emotionally manipulated in the production of this content. Squirrel turtles are not real. Dale is a fictional character. Please do not duct tape squirrels to anything. All AI-generated content is disclosed as such per YouTube creator guidelines. This website and its associated channel constitute entertainment and parody only.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>🐿️ Squirrel Turtle Rescue Network</h3>
+      <p>Protecting the dumbest animal that never existed since 2026. A satirical fake wildlife documentary universe. Think: The Onion + Animal Planet + a bait shop in south Georgia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Investigate</h4>
+      <a>The Lore</a>
+      <a>Field Reports</a>
+      <a>Evidence Board</a>
+      <a>Where Is Dale?</a>
+    </div>
+    <div class="footer-col">
+      <h4>Network</h4>
+      <a href="https://youtube.com" target="_blank">YouTube</a>
+      <a>TikTok</a>
+      <a>Instagram Reels</a>
+      <a>Membership</a>
+    </div>
+    <div class="footer-col">
+      <h4>Store</h4>
+      <a>Shirts</a>
+      <a>Stickers</a>
+      <a>Digital Downloads</a>
+      <a>Free Dale Gear</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Squirrel Turtle Rescue Network. Fictional. Satirical. Not responsible for Dale.</p>
+    <div class="footer-stamp">NOT A REAL WILDLIFE AGENCY</div>
+  </div>
+</footer>
+
+<!-- DALE MODAL -->
+<div class="alert-modal" id="daleModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>🚨 Dale Sighting Reported</h3>
+    <p>
+      An individual matching Dale Bickerson's description was spotted behind a Buc-ee's in Valdosta, Georgia at approximately 2:00 AM. He was carrying a cooler. He said it was "just snacks." The cooler was making noises.
+    </p>
+    <p>
+      Authorities (Officer Carl Dunn, self-appointed) have been notified. Dale's Venmo is currently suspended. This has not slowed him down.
+    </p>
+    <p style="font-size: 11px; color: #a0906a;">
+      This is fictional. Dale is a satirical character. Do not actually report anyone to authorities based on this website.
+    </p>
+    <button class="modal-btn" onclick="closeModal()">I UNDERSTAND. FREE DALE.</button>
+  </div>
+</div>
+
+<script>
+  // Ticker
+  const items = [
+    "SQUIRREL TURTLES ARE FICTIONAL",
+    "DALE IS SPIRITUALLY REAL",
+    "DO NOT FINANCE A SHELLBACK",
+    "$10,000 BLACK MARKET CONFIRMED UNCONFIRMED",
+    "BANNED IN THREE FLEA MARKETS",
+    "CANNOT CROSS GRAVEL UNAIDED",
+    "FLORIDA WILL NOT COMMENT",
+    "MATING CALL SOUNDS LIKE SMOKE DETECTOR",
+    "RAY-RAY'S IS SHOW QUALITY",
+    "DO NOT BUY FROM A COOLER BEHIND BUC-EES",
+    "SQUIRREL TURTLES ARE NOT REAL — DALE IS",
+    "PROTECT THE SHELLBACKS",
+    "ACORN SMUGGLING TASK FORCE ACTIVE"
+  ];
+
+  const ticker = document.getElementById('tickerInner');
+  const allItems = [...items, ...items]; // double for seamless loop
+  ticker.innerHTML = allItems.map(item =>
+    `<span class="ticker-item">${item}<span class="ticker-divider">◆</span></span>`
+  ).join('');
+
+  function scrollTo(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function showModal() {
+    document.getElementById('daleModal').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('daleModal').classList.remove('active');
+  }
+
+  document.getElementById('daleModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
+
+</body>
+</html>
