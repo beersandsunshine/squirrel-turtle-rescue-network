@@ -1111,6 +1111,42 @@
     margin-top: 10px;
   }
 
+  /* INTRO VIDEO SECTION */
+  .intro-video-section {
+    background: #0a0c05;
+    border-top: 3px solid var(--olive);
+    border-bottom: 3px solid var(--olive);
+  }
+
+  .intro-video-wrapper {
+    margin-top: 36px;
+    position: relative;
+    max-width: 860px;
+  }
+
+  .intro-video-wrapper video {
+    width: 100%;
+    display: block;
+    border: 2px solid var(--olive);
+    background: #000;
+  }
+
+  .intro-video-wrapper::before {
+    content: '▶ CLASSIFIED FIELD FOOTAGE';
+    display: block;
+    background: var(--rust);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    padding: 5px 14px;
+    margin-bottom: 0;
+    display: inline-block;
+    margin-bottom: -2px;
+    position: relative;
+    z-index: 1;
+  }
+
   /* YT SUBSCRIBE */
   .yt-section {
     background: #0a0c05;
@@ -1203,11 +1239,11 @@
     </div>
   </div>
   <nav>
-    <a onclick="scrollTo('lore')">The Lore</a>
-    <a onclick="scrollTo('episodes')">Episodes</a>
-    <a onclick="scrollTo('characters')">Investigators</a>
-    <a onclick="scrollTo('merch')">Merch</a>
-    <a onclick="scrollTo('membership')">Membership</a>
+    <a onclick="scrollToSection('lore')">The Lore</a>
+    <a onclick="scrollToSection('episodes')">Episodes</a>
+    <a onclick="scrollToSection('characters')">Investigators</a>
+    <a onclick="scrollToSection('merch')">Merch</a>
+    <a onclick="scrollToSection('membership')">Membership</a>
     <div class="nav-alert" onclick="showModal()">🔴 DALE SIGHTING</div>
   </nav>
 </header>
@@ -1226,8 +1262,8 @@
       Half squirrel. Half turtle. All problem. Deep in the rural South, a completely fake exotic animal allegedly sells for up to $10,000 on the underground pet market. We are on it.
     </p>
     <div class="hero-ctas fade-up-delay-3">
-      <a class="btn-primary" href="https://youtube.com/@SquirrelTurtleRescueNetwork" target="_blank">▶ Watch on YouTube</a>
-      <a class="btn-secondary" onclick="scrollTo('lore')">Read the Lore</a>
+      <a class="btn-primary" href="https://www.youtube.com/@SquirrelTurtleRescue" target="_blank">▶ Watch on YouTube</a>
+      <a class="btn-secondary" onclick="scrollToSection('lore')">Read the Lore</a>
     </div>
   </div>
 
@@ -1262,6 +1298,17 @@
 <div class="ticker">
   <div class="ticker-inner" id="tickerInner"></div>
 </div>
+
+<!-- INTRO VIDEO -->
+<section class="intro-video-section section" id="intro-video">
+  <div class="section-label">Official Network Broadcast</div>
+  <h2 class="section-title">Watch the Intro</h2>
+  <div class="intro-video-wrapper">
+    <video src="STRN_Intro_FINAL.mp4" controls preload="metadata" poster="">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
 
 <!-- WHAT IS A SQUIRREL TURTLE -->
 <section class="what-section section" id="lore">
@@ -1576,7 +1623,7 @@
 <section class="yt-section">
   <h2>Subscribe. It's Free.</h2>
   <p>Unlike buying a squirrel turtle from Dale, which will cost you $400 and your dignity.</p>
-  <a href="https://youtube.com/@SquirrelTurtleRescueNetwork" target="_blank" class="yt-btn">
+  <a href="https://www.youtube.com/@SquirrelTurtleRescue" target="_blank" class="yt-btn">
     ▶ YouTube — Squirrel Turtle Rescue Network
   </a>
 </section>
@@ -1605,7 +1652,7 @@
     </div>
     <div class="footer-col">
       <h4>Network</h4>
-      <a href="https://youtube.com" target="_blank">YouTube</a>
+      <a href="https://www.youtube.com/@SquirrelTurtleRescue" target="_blank">YouTube</a>
       <a>TikTok</a>
       <a>Instagram Reels</a>
       <a>Membership</a>
@@ -1666,7 +1713,7 @@
     `<span class="ticker-item">${item}<span class="ticker-divider">◆</span></span>`
   ).join('');
 
-  function scrollTo(id) {
+  function scrollToSection(id) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }
 
